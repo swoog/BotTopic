@@ -2,7 +2,7 @@
 
 namespace BotFramework.Topics
 {
-    public interface ITopicBotContext<T> : IBotContext 
+    public interface ITopicBotContext<T> : ITurnContext
         where T : ITopicBotContext<T>
     {
         ConversationState<T> ConversationState { get; }
