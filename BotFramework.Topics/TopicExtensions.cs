@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
-using BotFramework.Topics;
 
-namespace Dommy.Bot
+namespace BotFramework.Topics
 {
     public static class TopicExtensions
     {
