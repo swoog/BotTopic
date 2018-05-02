@@ -9,20 +9,23 @@ namespace BotFramework.Topics
             where T : ITopic<TContext>
             where TContext : ITopicBotContext<TContext>
         {
-            context.ConversationState.Previous.Add(context.ConversationState.ActiveTopic);
-            context.ConversationState.ActiveTopic = topic;
+            if (context.ConversationState.ActiveTopic != null)
+            {
+                context.ConversationState.Previous.Add(context.ConversationState.ActiveTopic);
+            }
+
+            context.ConversationState.SetActiveTopic(topic);
             return await context.ConversationState.ActiveTopic.StartTopic(context);
         }
 
         public static async Task<bool> EndTopic<TContext>(this TContext context)
             where TContext : ITopicBotContext<TContext>
         {
-            context.ConversationState.ActiveTopic = context.ConversationState.Previous.LastOrDefault();
-            context.ConversationState.Previous =
-                context.ConversationState.Previous.Take(context.ConversationState.Previous.Count - 1).ToList();
+            context.ConversationState.SetActiveTopic(context.ConversationState.Previous.LastOrDefault());
+            context.ConversationState.Previous.Remove(context.ConversationState.ActiveTopic);
             if (context.ConversationState.ActiveTopic != null)
             {
-                await context.ConversationState.ActiveTopic.ContinueTopic(context);
+                await context.ConversationState.ActiveTopic.ResumeTopic(context);
             }
 
             return true;
