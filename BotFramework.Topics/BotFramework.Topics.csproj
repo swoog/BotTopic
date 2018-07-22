@@ -1,10 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Bot.Builder.Core.Extensions" Version="4.0.0-alpham3.2" />
+    <PackageReference Include="Microsoft.Bot.Builder" Version="4.0.1-preview" />
+    <PackageReference Include="Microsoft.Bot.Builder.Classic" Version="4.0.1-preview" />
+    <PackageReference Include="Microsoft.Bot.Builder.Core.Extensions" Version="4.0.1-preview" />
   </ItemGroup>
 </Project>
