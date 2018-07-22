@@ -1,5 +1,4 @@
 ﻿using Microsoft.Bot.Builder;
-using Microsoft.Bot.Builder.Classic.Dialogs;
 
 namespace BotFramework.Topics
 {

@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Bot.Builder" Version="4.0.1-preview" />
-    <PackageReference Include="Microsoft.Bot.Builder.Classic" Version="4.0.1-preview" />
     <PackageReference Include="Microsoft.Bot.Builder.Core.Extensions" Version="4.0.1-preview" />
   </ItemGroup>
 </Project>
